@@ -13,7 +13,7 @@ function App() {
       <div id="nav-bar">
         <Nav />
         <Routes>
-          <Route path="/scatter" element={<Scatter />} />
+          <Route path="/" element={<Scatter />} />
           <Route path="/histogram" element={<Histogram />} />
         </Routes>
       </div>

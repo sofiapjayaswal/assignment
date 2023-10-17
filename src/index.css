@@ -39,6 +39,20 @@ nav ul{
   justify-content: space-between;
 }
 
+#home-icon a{
+  display: flex;
+  align-items: center;
+  font-size: 1.2em;
+  width: 20%;
+
+}
+
+#home-icon svg {
+  font-size: 1.5em;
+}
+
+
+
 #non-home-nav {
   width: 60%;
   list-style-type: none;
