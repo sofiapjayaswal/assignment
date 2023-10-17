@@ -1,70 +1,30 @@
-# Getting Started with Create React App
+# Uncountable Coding Assignment
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Data Visualization Site (DataVizHub)
 
-## Available Scripts
+## Summary
 
-In the project directory, you can run:
+This project allows users to visualize a dataset through scatterplots and histograms. The first view the user has access to is they can choose an input and an output to compare on a scatterplot. The second view is a histogram through which a user can choose an output, a range for the measurement of the chosen output, and finally the inputs that they are interested in seeing the average measurements of that produced the specified range of outputs. The goal of DataVizHub is to allow users to visualize the relationships between inputs and outputs in the experiment as well as see the conditions in which a certain output was produced in experiments.
 
-### `npm start`
+## Architecture
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The project utilizes ReactJS for the frontend and ChartJS and react-chartjs-2 as the libraries to produce charts. The React app has two screens: scatter and histogram. In each screen, the user’s chosen inputs, outputs, and range are stored as states. When all required inputs are selected, the data json object is then queried to find corresponding data to provide to the ChartJS chart. For the histogram, whenever the user edits minimum and maximums the dataset is queried to see if it is within the range of measurements for the selected output. 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Other libraries used:
 
-### `npm test`
+- Create-React-App library was used to bootstrap the project
+- React-select for dropdowns
+- Font-Awesome Icons for logo
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## How to Improve
 
-### `npm run build`
+In a production setting, here are several things I would improve and add:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Add ability for user to view multiple datasets on one chart.
+- Implement a backend database that stores the data so the data is not hard-coded into the project/easier to add more data to it.
+- Add ability for user to save the created chart.
+- Have a home page explaining how to use the platform more extensively.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## How to Run
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Run `npm run start` and visit [localhost://3000](http://localhost3000/) to view DataVizHub.
