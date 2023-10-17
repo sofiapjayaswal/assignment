@@ -99,11 +99,24 @@ function Histo() {
         display: false,
       },
     },
+    scales: {
+      y: {
+        title: {
+          display: true,
+          text: "Average Input Measurement",
+        },
+      },
+    },
   };
 
   return (
     <div className="histo-screen">
-      <p className="instructions">First, select an output measurement that you want to examine.<br/>Then specify a range for that measurement.<br/>Lastly, choose the inputs that you want to see the average measurement that produced the specified output range.</p>
+      <h3>Instructions</h3>
+      <ol className="instructions-list">
+        <li>Select an output measurement that you want to examine.</li>
+        <li>Specify a range for that measurement.</li>
+        <li>Choose the inputs that you want to see the average measurement that produced the specified output range.</li>
+      </ol>
       <h4>Output:</h4>
       <Select 
         options={outputs} 

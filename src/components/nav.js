@@ -10,15 +10,15 @@ function Nav(props) {
         <ul>
             <div>
             <li id="home-icon">
-                <NavLink to="/">
+                <NavLink to="/" className="inactive-home">
                     <FontAwesomeIcon icon={faFlask} />
                     <div>DataVizHub</div>
                 </NavLink>
             </li>
             </div>
             <div id="non-home-nav">
-                <li><NavLink to="/">Scatterplot</NavLink></li>
-                <li><NavLink to="/histogram">Histogram</NavLink></li>
+                <li><NavLink to="/" className={({ isActive }) => (isActive ? "active" : "inactive")}>Scatterplot</NavLink></li>
+                <li><NavLink to="/histogram" className={({ isActive }) => (isActive ? "active" : "inactive")}>Histogram</NavLink></li>
             </div>
         </ul>
         </nav>
