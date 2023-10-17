@@ -9,7 +9,7 @@ function Nav(props) {
             </div>
             <div id="non-home-nav">
                 <li><NavLink to="/scatter">Scatterplot</NavLink></li>
-                <li><NavLink to="/histo">Histogram</NavLink></li>
+                <li><NavLink to="/histogram">Histogram</NavLink></li>
             </div>
         </ul>
         </nav>

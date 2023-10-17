@@ -4,7 +4,7 @@ import {
   BrowserRouter, Routes, Route,
 } from 'react-router-dom';
 import Nav from './components/nav';
-import Histo from './screens/histo';
+import Histogram from './screens/histogram';
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
         <Nav />
         <Routes>
           <Route path="/scatter" element={<Scatter />} />
-          <Route path="/histo" element={<Histo />} />
+          <Route path="/histogram" element={<Histogram />} />
         </Routes>
       </div>
     </BrowserRouter>
