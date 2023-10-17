@@ -24,6 +24,8 @@ In a production setting, here are several things I would improve and add:
 - Implement a backend database that stores the data so the data is not hard-coded into the project/easier to add more data to it.
 - Add ability for user to save the created chart.
 - Have a home page explaining how to use the platform more extensively.
+- Add a linear regression to the scatterplot to help users visualize the correlation.
+- If the dataset were larger, it would be inefficient to update data for the chart everytime the user changed one of the required specifications. Therefore, I would implement a form, so the user would have to submit specifications before the dataset is queried to provide data for the chart.
 
 ## How to Run
 - Run `npm install`
