@@ -91,8 +91,8 @@ function Histo() {
 
   return (
     <div className="histo-screen">
-      <p>First, select an output measurement that you want to examine.<br/>Then specify a range for that measurement.<br/>Lastly, choose the inputs that you want to see the average measurement that produced the specified output range.</p>
-      
+      <p className="instructions">First, select an output measurement that you want to examine.<br/>Then specify a range for that measurement.<br/>Lastly, choose the inputs that you want to see the average measurement that produced the specified output range.</p>
+      <h4>Output:</h4>
       <Select 
         options={outputs} 
         onChange={(e) => setOutputProperty(e.value)} 
@@ -105,17 +105,18 @@ function Histo() {
       
       <div className="min-max-inputs">
         <div>
-          <label htmlFor="min">Minimum output measurement:</label>
+          <label htmlFor="min"><h4>Minimum output measurement:</h4></label>
           <input id="min" placeholder="Minimum" disabled={outputProperty === ""} value={userMin} onChange={(e) => setUserMin(e.target.value)} />
         </div>
         <div>
-          <label htmlFor="max">Maximum output measurement:</label>
+          <label htmlFor="max"><h4>Maximum output measurement:</h4></label>
           <input id="max" placeholder="Maximum" disabled={outputProperty === ""} value={userMax} onChange={(e) => setUserMax(e.target.value)} />
         </div>
       </div>
       
       {minMaxError ? <div className="error-message">Error: ensure that entered minimum and maximum are within specified range!</div> : null}
       
+      <h4>Inputs:</h4>
       <Select
         isMulti
         isDisabled={outputProperty === ""}

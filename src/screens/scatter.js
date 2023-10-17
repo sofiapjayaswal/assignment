@@ -59,20 +59,26 @@ function ScatterScreen() {
   
   return (
     <div className="scatter-screen">
-      <div>Select the input and output below that you would like to compare on a scatterplot.</div>
-      <div className='scatter-dropdowns'> 
-        <Select 
-          options={inputs} 
-          onChange={(e) => setInputProperty(e.value)} 
-          placeholder="Select Input to Examine"
-          styles={dropdownStyles}
-        />
-        <Select 
-          options={outputs} 
-          onChange={(e) => setOutputProperty(e.value)} 
-          placeholder="Select Output to Examine"
-          styles={dropdownStyles}
-        />
+      <div className="instructions">Select the input and output below that you would like to compare on a scatterplot.</div>
+      <div className='scatter-dropdowns-container'> 
+        <div className="scatter-dropdown">
+          <h4>Input:</h4>
+          <Select 
+            options={inputs} 
+            onChange={(e) => setInputProperty(e.value)} 
+            placeholder="Select Input to Examine"
+            styles={dropdownStyles}
+          />
+        </div>
+        <div className="scatter-dropdown">
+          <h4>Output:</h4>
+          <Select 
+            options={outputs} 
+            onChange={(e) => setOutputProperty(e.value)} 
+            placeholder="Select Output to Examine"
+            styles={dropdownStyles}
+          />
+        </div>
       </div>
       {data.length > 0 ? <Scatter className="scatter-chart" data={chartConfig} options={chartOptions}/> : null}
     </div>

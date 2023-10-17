@@ -42,16 +42,13 @@ nav ul{
 #home-icon a{
   display: flex;
   align-items: center;
-  font-size: 1.2em;
+  font-size: 1.4em;
   width: 20%;
-
 }
 
 #home-icon svg {
-  font-size: 1.5em;
+  padding-right: 5%;
 }
-
-
 
 #non-home-nav {
   width: 60%;
@@ -70,12 +67,16 @@ nav ul{
   align-items: center;
 }
 
-.scatter-dropdowns {
+.scatter-dropdowns-container {
   display: flex;
   width: 40%;
   justify-content: space-around; 
   padding-top: 2%;
   padding-bottom: 2%;
+}
+
+.scatter-dropdown h4 {
+  margin-bottom: 2%;
 }
 
 .histo-screen {
@@ -85,11 +86,9 @@ nav ul{
   align-items: center;
 }
 
-.histo-screen p{
-  width: 50%;
-  font-size: 1.2em;
+.histo-screen h4{
+  margin-bottom: 0;
 }
-
 .histo-dropdown {
   width: 60%;
   padding-bottom: 2%;
@@ -124,4 +123,8 @@ nav ul{
 .select-all-container {
   display: flex;
   align-items: center;
+}
+
+.instructions {
+  font-size: 1.2em;
 }
