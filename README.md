@@ -1,6 +1,6 @@
 # Uncountable Coding Assignment
 
-## [Data Visualization Site (DataVizHub)]([url](https://datavizhub.onrender.com/))
+## [Data Visualization Site (DataVizHub)](https://datavizhub.onrender.com/)
 
 ## Summary
 
