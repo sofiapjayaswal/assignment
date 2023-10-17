@@ -27,3 +27,16 @@ export const inputs = [
     { value: 'Curing Agent 2', label: 'Curing Agent 2' },
     { value: 'Oven Temperature', label: 'Oven Temperature' },
   ]
+
+export const dropdownStyles = {
+    control: (baseStyles, state) => ({
+        ...baseStyles,
+        borderColor: state.isFocused ? 'white' : '#725AC1',
+    }),
+    option: (provided, state) => ({
+        ...provided,
+        color: "#725AC1",
+        backgroundColor: state.isFocused ? "#F4F3EE" : "white",
+        fontSize: state.selectProps.myFontSize
+    }),
+}

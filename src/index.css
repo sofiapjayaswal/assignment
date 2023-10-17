@@ -58,7 +58,7 @@ nav ul{
 
 .scatter-dropdowns {
   display: flex;
-  width: 30%;
+  width: 40%;
   justify-content: space-around; 
   padding-top: 2%;
   padding-bottom: 2%;
@@ -73,6 +73,7 @@ nav ul{
 
 .histo-screen p{
   width: 50%;
+  font-size: 1.2em;
 }
 
 .histo-dropdown {
@@ -83,8 +84,30 @@ nav ul{
 
 .min-max-inputs {
   display: flex;
-  height: 25px;
-  justify-content: space-between;
-  width: 25%;
   padding: 1%;
+  justify-content: space-between;
+  width: 40%;
+}
+
+.min-max-inputs div {
+  display: flex;
+  flex-direction: column;
+}
+
+.min-max-inputs label {
+  margin-bottom: 3%;
+}
+
+.min-max-inputs input {
+  text-align: center;
+  font-size: 1.1em;
+}
+
+.error-message {
+  color: red;
+}
+
+.select-all-container {
+  display: flex;
+  align-items: center;
 }

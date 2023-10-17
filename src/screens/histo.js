@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Select from "react-select";
-import { outputs, inputs } from '../constants';
+import { outputs, inputs, dropdownStyles } from '../constants';
 import dataset from '../dataset.json';
 import { Bar } from 'react-chartjs-2';
 import {
@@ -62,7 +62,7 @@ function Histo() {
   }, [outputProperty, checkedInputValues, userMin, userMax]);
 
   useEffect(() => {
-    if (userMin !== "" && userMax !== "" && (userMin < propertyMin || userMax > propertyMax || isNaN(userMax) || isNaN(userMin))) {
+    if ((userMin !== "" || userMax !== "") && (userMin < propertyMin || userMax > propertyMax || isNaN(userMax) || isNaN(userMin))) {
       setMinMaxError(true)
     } else {
       setMinMaxError(false)
@@ -79,27 +79,43 @@ function Histo() {
     setCheckedInputValues(options);
     options.length === inputs.length ? setAllChecked(true) : setAllChecked(false);
   }
-
-  // cha  
+  
   const data = {
     labels: checkedInputValues.map((input) => input.label),
     datasets: [{
       label: 'Uncountable Dataset',
       data: chartData,
-      backgroundColor: 'rgba(75, 192, 192, 0.2)',
+      backgroundColor: '#8D86C9',
     }]
   };
 
   return (
     <div className="histo-screen">
-      <p>First, select an output measurement that you want to examine.<br/>Then specify a range for that measurement.<br/>Lastly, choose the inputs that you want to see the average measurement of that produced the specified output range.</p>
-      <Select options={outputs} onChange={(e) => setOutputProperty(e.value)} placeholder="Select Output" className = "histo-dropdown"/>
+      <p>First, select an output measurement that you want to examine.<br/>Then specify a range for that measurement.<br/>Lastly, choose the inputs that you want to see the average measurement that produced the specified output range.</p>
+      
+      <Select 
+        options={outputs} 
+        onChange={(e) => setOutputProperty(e.value)} 
+        placeholder="Select Output" 
+        className = "histo-dropdown"
+        styles={dropdownStyles}
+      />
+      
       {outputProperty !== "" ? <div>Set minimum and maximum values for the selected output, values should be between {propertyMin} and {propertyMax}.</div> : null}
+      
       <div className="min-max-inputs">
-        <input placeholder="Minimum" disabled={outputProperty === ""} value={userMin} onChange={(e) => setUserMin(e.target.value)} />
-        <input placeholder="Maximum" disabled={outputProperty === ""} value={userMax} onChange={(e) => setUserMax(e.target.value)} />
+        <div>
+          <label htmlFor="min">Minimum output measurement:</label>
+          <input id="min" placeholder="Minimum" disabled={outputProperty === ""} value={userMin} onChange={(e) => setUserMin(e.target.value)} />
+        </div>
+        <div>
+          <label htmlFor="max">Maximum output measurement:</label>
+          <input id="max" placeholder="Maximum" disabled={outputProperty === ""} value={userMax} onChange={(e) => setUserMax(e.target.value)} />
+        </div>
       </div>
-      {minMaxError ? <div>Error: ensure that entered minimum and maximum are within specified range!</div> : null}
+      
+      {minMaxError ? <div className="error-message">Error: ensure that entered minimum and maximum are within specified range!</div> : null}
+      
       <Select
         isMulti
         isDisabled={outputProperty === ""}
@@ -108,18 +124,21 @@ function Histo() {
         onChange={(options) => onInputSelectChange(options)}
         value={checkedInputValues}
         placeholder="Select Inputs to Examine"
+        styles={dropdownStyles}
         className = "histo-dropdown"
       />
-      <input
-        onChange={onAllCheckedChange}
-        type="checkbox"
-        id="selectAll"
-        value="selectAll"
-        checked={allChecked}
-        disabled={outputProperty === ""}
-      />
-      <label htmlFor="selectAll">Select all</label>
-
+      
+      <div className="select-all-container">
+        <label htmlFor="select-all">View Averages for All Inputs</label>
+        <input
+          onChange={onAllCheckedChange}
+          type="checkbox"
+          id="select-all"
+          value="select-all"
+          checked={allChecked}
+          disabled={outputProperty === ""}
+        />
+      </div>
       {chartData.length > 0 ? <Bar data={data} /> : null}
     </div>
   );
