@@ -59,7 +59,7 @@ function Histo() {
       });
       setChartData(averages);
     }
-  }, [outputProperty, checkedInputValues, userMin, userMax]);
+  }, [outputProperty, checkedInputValues, userMin, userMax, minMaxError]);
 
   useEffect(() => {
     if ((userMin !== "" || userMax !== "") && (userMin < propertyMin || userMax > propertyMax || isNaN(userMax) || isNaN(userMin))) {
