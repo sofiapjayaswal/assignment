@@ -55,6 +55,11 @@ function ScatterScreen() {
         },
       },
     },
+    plugins: {
+      legend: {
+        display: false,
+      },
+    },
   };
   
   return (

@@ -42,7 +42,7 @@ function Histo() {
   }, [outputProperty]);
 
   useEffect(() => {
-    if (outputProperty !== "" && userMin !== "" && userMax !== "" && checkedInputValues.length > 0) {
+    if (!minMaxError && outputProperty !== "" && userMin !== "" && userMax !== "" && checkedInputValues.length > 0) {
       let experimentsInRange = [];
       for (let experiment in dataset) {
         if (userMin < dataset[experiment]["outputs"][outputProperty] && dataset[experiment]["outputs"][outputProperty] < userMax) {
@@ -87,6 +87,14 @@ function Histo() {
       data: chartData,
       backgroundColor: '#8D86C9',
     }]
+  };
+
+  const chartOptions = {
+    plugins: {
+      legend: {
+        display: false,
+      },
+    },
   };
 
   return (
@@ -140,7 +148,7 @@ function Histo() {
           disabled={outputProperty === ""}
         />
       </div>
-      {chartData.length > 0 ? <Bar data={data} /> : null}
+      {chartData.length > 0 ? <Bar data={data} options={chartOptions} /> : null}
     </div>
   );
 }
