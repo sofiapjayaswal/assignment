@@ -26,5 +26,6 @@ In a production setting, here are several things I would improve and add:
 - Have a home page explaining how to use the platform more extensively.
 
 ## How to Run
-
-Run `npm run start` and visit [localhost://3000](http://localhost3000/) to view DataVizHub.
+- Run `npm install`
+- Run `npm run start`
+- Visit [localhost://3000](http://localhost3000/) to view DataVizHub.
