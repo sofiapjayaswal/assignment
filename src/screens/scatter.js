@@ -19,6 +19,7 @@ function ScatterScreen() {
   const [outputProperty, setOutputProperty] = useState("")
   const [data, setData] = useState([])
 
+  // when input and output are set by user, get data for chart
   useEffect(() => {
     if (inputProperty !== "" && outputProperty !== "") {
       let tempData = []
@@ -26,16 +27,15 @@ function ScatterScreen() {
         tempData.push({x: dataset[experiment]["inputs"][inputProperty], y: dataset[experiment]["outputs"][outputProperty]})
       }
       setData(tempData)
-      console.log('temp', tempData)
     }
   }, [inputProperty, outputProperty])
 
+  // configuration for chart
   const chartConfig = {
     datasets: [
       {
-        label: 'Uncountable dataset',
         data: data,
-        backgroundColor: 'rgba(255, 99, 132, 1)',
+        backgroundColor: "#725AC1",
       },
     ],
   };

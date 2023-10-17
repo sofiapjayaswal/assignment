@@ -12,7 +12,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
+/* nav bar */
 nav a {
   text-decoration: none;
   color: #F4F3EE;
@@ -60,6 +60,7 @@ nav ul{
   font-size: 1.2em;
 }
 
+/* scatter plot screen */
 .scatter-screen {
   padding: 3%;
   display: flex;
@@ -79,6 +80,7 @@ nav ul{
   margin-bottom: 2%;
 }
 
+/* histogram screen */
 .histo-screen {
   padding: 3%;
   display: flex;
@@ -89,6 +91,7 @@ nav ul{
 .histo-screen h4{
   margin-bottom: 0;
 }
+
 .histo-dropdown {
   width: 60%;
   padding-bottom: 2%;

@@ -15,15 +15,16 @@ ChartJS.register(Tooltip, Legend, CategoryScale, BarController, BarElement);
 
 function Histo() {
   const [outputProperty, setOutputProperty] = useState("");
-  const [userMin, setUserMin] = useState("");
-  const [userMax, setUserMax] = useState("");
-  const [propertyMin, setPropertyMin] = useState(null);
-  const [propertyMax, setPropertyMax] = useState(null);
-  const [allChecked, setAllChecked] = useState(false);
+  const [userMin, setUserMin] = useState(""); // min set by user
+  const [userMax, setUserMax] = useState(""); // max set by user
+  const [propertyMin, setPropertyMin] = useState(null); // min of the chosen output
+  const [propertyMax, setPropertyMax] = useState(null); // max of the chosen output
+  const [allChecked, setAllChecked] = useState(false); // if all inputs are checked
   const [checkedInputValues, setCheckedInputValues] = useState([]);
   const [chartData, setChartData] = useState([]);
   const [minMaxError, setMinMaxError] = useState(false);
   
+  // find min and max of output chosen by user
   useEffect(() => {
     let localMin = Infinity;
     let localMax = -Infinity;
@@ -41,6 +42,7 @@ function Histo() {
     setPropertyMax(localMax);
   }, [outputProperty]);
 
+  // when user has inputted all required sections and there is no error with the min and max specify, get chart data
   useEffect(() => {
     if (!minMaxError && outputProperty !== "" && userMin !== "" && userMax !== "" && checkedInputValues.length > 0) {
       let experimentsInRange = [];
@@ -50,6 +52,7 @@ function Histo() {
         }
       }
 
+      // find average for each specified input
       let averages = checkedInputValues.map((input) => {
         let totalSum = 0;
         for (let experiment of experimentsInRange) {
@@ -61,6 +64,7 @@ function Histo() {
     }
   }, [outputProperty, checkedInputValues, userMin, userMax, minMaxError]);
 
+  // check whether there the inputted min and max are within the output measurement range
   useEffect(() => {
     if ((userMin !== "" || userMax !== "") && (userMin < propertyMin || userMax > propertyMax || isNaN(userMax) || isNaN(userMin))) {
       setMinMaxError(true)
@@ -80,10 +84,10 @@ function Histo() {
     options.length === inputs.length ? setAllChecked(true) : setAllChecked(false);
   }
   
+  // configuration for chart
   const data = {
     labels: checkedInputValues.map((input) => input.label),
     datasets: [{
-      label: 'Uncountable Dataset',
       data: chartData,
       backgroundColor: '#8D86C9',
     }]
