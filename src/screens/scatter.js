@@ -64,7 +64,7 @@ function ScatterScreen() {
   
   return (
     <div className="scatter-screen">
-      <div className="instructions">Select the input and output below that you would like to compare on a scatterplot.</div>
+      <div className="instructions">Please choose both an input and an output below to visualize and compare them on a scatterplot.</div>
       <div className='scatter-dropdowns-container'> 
         <div className="scatter-dropdown">
           <h4>Input:</h4>
