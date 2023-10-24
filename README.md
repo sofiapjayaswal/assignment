@@ -1,20 +1,22 @@
 # Uncountable Coding Assignment
 
-## Data Visualization Site (DataVizHub)
+## [Data Visualization Site (DataVizHub)](https://datavizhub.onrender.com/)
 
 ## Summary
 
-This project allows users to visualize a dataset through scatterplots and histograms. The first view the user has access to is they can choose an input and an output to compare on a scatterplot. The second view is a histogram through which a user can choose an output, a range for the measurement of the chosen output, and finally the inputs that they are interested in seeing the average measurements of that produced the specified range of outputs. The goal of DataVizHub is to allow users to visualize the relationships between inputs and outputs in the experiment as well as see the conditions in which a certain output was produced in experiments.
+This project allows users to gain insights from a provided dataset by presenting it through dynamic scatterplots and histograms.
+
+In the initial view, users can select both an input and an output parameter to effectively compare and analyze their data on a scatterplot. This intuitive interface provides a quick and straightforward way to explore relationships within the dataset.
+
+For more in-depth examination, the project also offers a second view, which features dynamic histograms. Within this view, users can select a specific output variable, define a custom measurement range for that output, and then specify the input parameters they are interested in. This allows users to visualize the average measurements of inputs that resulted in the specified range of outputs.
+
+Overall, the project provides a powerful tool for uncovering patterns, trends, and conditions under which specific outputs are generated in various experiments.
 
 ## Architecture
 
-The project utilizes ReactJS for the frontend and ChartJS and react-chartjs-2 as the libraries to produce charts. The React app has two screens: scatter and histogram. In each screen, the user’s chosen inputs, outputs, and range are stored as states. When all required inputs are selected, the data json object is then queried to find corresponding data to provide to the ChartJS chart. For the histogram, whenever the user edits minimum and maximums the dataset is queried to see if it is within the range of measurements for the selected output. 
+The project utilizes ReactJS for the frontend and ChartJS, along with react-chartjs-2, for chart rendering. The React app consists of two screens: one for scatterplots and another for histograms. The screens are located in the *link directory.* User-selected inputs, outputs, and range values are tracked as states. When all necessary inputs are selected, the app queries the data JSON object to fetch corresponding data for rendering the ChartJS chart. For histograms, user-edited minimum and maximum values trigger dataset queries to ensure they fall within the selected output's measurement range. 
 
-Other libraries used:
-
-- Create-React-App library was used to bootstrap the project
-- React-select for dropdowns
-- Font-Awesome Icons for logo
+Additional libraries include Create-React-App for project bootstrapping, React-select for dropdowns, and Font-Awesome Icons for a logo.
 
 ## How to Improve
 
@@ -27,7 +29,9 @@ In a production setting, here are several things I would improve and add:
 - Add a linear regression to the scatterplot to help users visualize the correlation.
 - If the dataset were larger, it would be inefficient to update data for the chart everytime the user changed one of the required specifications. Therefore, I would implement a form, so the user would have to submit specifications before the dataset is queried to provide data for the chart.
 
-## How to Run
+Link to hosted site: https://datavizhub.onrender.com/
+
+## How to Run Locally
 - Run `npm install`
 - Run `npm run start`
 - Visit [localhost://3000](http://localhost3000/) to view DataVizHub.
